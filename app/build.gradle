@@ -49,8 +49,8 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10"
 
-    //Glide
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
+//    Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     //Circular image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
@@ -67,5 +67,12 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     // alternately - if using Java8, use the following instead of lifecycle-compiler
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+
+    // Paging source
+    def paging_version = "3.0.0-beta03"
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
 }

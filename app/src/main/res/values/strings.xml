@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Assignment</string>
+    <string name="sample_name">Taxi Vaxi</string>
+    <string name="sample_email">info@taxivaxi.com</string>
+    <string name="userList">User List</string>
+    <string name="no_internet">No Internet</string>
 </resources>

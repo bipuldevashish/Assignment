@@ -1,6 +1,6 @@
 package com.example.assignment.models
 
-data class UserDetails(
+data class  UserDetails(
 
     val page: Int,
     val per_page: Int,
