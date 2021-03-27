@@ -9,9 +9,9 @@ object Utils {
 
     fun ImageView.loadImage(uri: String?) {
         val options = RequestOptions()
-            .placeholder(R.drawable.ic_user)
+            .placeholder(R.drawable.loading)
             .circleCrop()
-            .error(R.mipmap.ic_launcher_round)
+            .error(R.drawable.attention)
         Glide.with(this.context)
             .setDefaultRequestOptions(options)
             .load(uri)

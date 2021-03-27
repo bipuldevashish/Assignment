@@ -9,6 +9,7 @@ interface ApiService {
 
     @GET("api/users")
     suspend fun getUserDetails(
-        @Query("page") page: Int
-    ): Response<UserDetails>
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int
+    ): UserDetails
 }

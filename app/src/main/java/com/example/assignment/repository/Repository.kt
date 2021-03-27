@@ -1,13 +1,23 @@
 package com.example.assignment.repository
 
-import com.example.assignment.api.RetrofitInstance
-import com.example.assignment.models.UserDetails
-import retrofit2.Response
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.liveData
+import com.example.assignment.api.ApiService
+import com.example.assignment.paging.UserListPagingSource
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class Repository {
+@Singleton
+class Repository @Inject constructor(private val apiService: ApiService) {
 
-       suspend fun getUserDetails() : Response<UserDetails> {
-            return RetrofitInstance.api.getUserDetails(1)
-        }
-
+       fun getUserDetails()  =
+           Pager(
+               config = PagingConfig(
+                   pageSize = 10,
+                   maxSize = 30,
+                   enablePlaceholders = false
+               ),
+               pagingSourceFactory = { UserListPagingSource(apiService) }
+           ).liveData
 }

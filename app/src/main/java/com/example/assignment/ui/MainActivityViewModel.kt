@@ -1,22 +1,18 @@
 package com.example.assignment.ui
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.assignment.models.UserDetails
+import androidx.paging.cachedIn
 import com.example.assignment.repository.Repository
-import kotlinx.coroutines.launch
-import retrofit2.Response
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MainActivityViewModel(private val repository: Repository): ViewModel() {
+private const val TAG = "MainActivityViewModel"
 
-    val response: MutableLiveData<Response<UserDetails>> = MutableLiveData()
+@HiltViewModel
+class MainActivityViewModel @Inject constructor(repository: Repository): ViewModel() {
 
-        fun getUserDetails(){
-            viewModelScope.launch {
-                val apiResponse = repository.getUserDetails()
-                response.value = apiResponse
-            }
-        }
+        val users = repository.getUserDetails().cachedIn(viewModelScope)
+
 
 }
